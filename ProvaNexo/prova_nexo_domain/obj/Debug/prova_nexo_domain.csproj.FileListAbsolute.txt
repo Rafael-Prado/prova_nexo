@@ -1,0 +1,11 @@
+C:\rafa\ProvaNexo\prova_nexo_domain\bin\Debug\prova_nexo_domain.dll
+C:\rafa\ProvaNexo\prova_nexo_domain\bin\Debug\prova_nexo_domain.pdb
+C:\rafa\ProvaNexo\prova_nexo_domain\obj\Debug\prova_nexo_domain.dll
+C:\rafa\ProvaNexo\prova_nexo_domain\obj\Debug\prova_nexo_domain.pdb
+C:\rafa\ProvaNexo\prova_nexo_domain\obj\Debug\prova_nexo_domain.csprojAssemblyReference.cache
+C:\rafa\ProvaNexo\prova_nexo_domain\bin\Debug\prova_nexo_domain.dll.config
+C:\rafa\ProvaNexo\prova_nexo_domain\bin\Debug\EntityFramework.dll
+C:\rafa\ProvaNexo\prova_nexo_domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\rafa\ProvaNexo\prova_nexo_domain\bin\Debug\EntityFramework.xml
+C:\rafa\ProvaNexo\prova_nexo_domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\rafa\ProvaNexo\prova_nexo_domain\obj\Debug\prova_nexo_domain.csproj.CopyComplete
