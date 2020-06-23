@@ -7,7 +7,7 @@ namespace prova_nexo_service.Service.Interface
     public interface IClienteService
     {
         IEnumerable<Cliente> GetClienteList();
-        Cliente GetClienteId(int id);
+        Cliente GetClienteId(Guid id);
         bool SalvarCliente(Cliente cliente);
     }
 }

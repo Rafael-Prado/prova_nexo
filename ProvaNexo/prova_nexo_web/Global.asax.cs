@@ -5,7 +5,6 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using prova_nexo_infra.Shared;
 using prova_nexo_web.App_Start;
-using prova_nexo_web.Mappers;
 
 namespace prova_nexo_web
 {
@@ -18,7 +17,7 @@ namespace prova_nexo_web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            AutoMapperConfig.RegisterMappings();
+            AutoMapperConfig.Initialize();
 
 
             IocConfig.ConfigurarDependencias();

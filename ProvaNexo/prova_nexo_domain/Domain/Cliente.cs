@@ -7,8 +7,9 @@ namespace prova_nexo_domain.Domain
     {
         public Cliente()
         {
-            Id = new Guid();
+            DataCadastro = DateTime.Now;
             ProdutoList = new List<Produto>();
+            Ativo = true;
         }
 
         public Guid Id { get;  set; }
@@ -17,6 +18,7 @@ namespace prova_nexo_domain.Domain
         public string Email { get;  set; }
         public DateTime DataCadastro { get;  set; }
         public bool Ativo { get;  set; }
+
 
         public virtual ICollection<Produto> ProdutoList { get; set; }
     }

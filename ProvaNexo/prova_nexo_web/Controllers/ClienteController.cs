@@ -1,5 +1,7 @@
 ﻿
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using prova_nexo_domain.Domain;
@@ -20,19 +22,38 @@ namespace prova_nexo_web.Controllers
         public ActionResult Index()
         {
             var clientes = _service.GetClienteList();
-            Mapper.Initialize(c => c.CreateMap<Cliente, ClienteModel>());
             var clintedest = Mapper.Map< IEnumerable<Cliente>, IEnumerable<ClienteModel>>(clientes);
             
-            return View(clientes);
+            return View(clintedest);
         }
 
         // GET: Cliente/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             var cliente = _service.GetClienteId(id);
-            Mapper.Initialize(c => c.CreateMap<Cliente, ClienteModel>());
             var clintedest = Mapper.Map<Cliente, ClienteModel>(cliente);
-            return View(cliente);
+            var produtos = clintedest.ProdutoList.Count();
+            TimeSpan intervalo = DateTime.Now.Date - Convert.ToDateTime(clintedest.DataCadastro);
+            if (intervalo.Days/365 > 5)
+            {
+                ViewBag.statusMaster = "Prata";
+            }
+            
+
+            if (produtos >= 2000 && produtos < 5000)
+            {
+                ViewBag.statusMaster = "Ouro";
+            }
+            if (produtos >= 5000 && produtos < 10000)
+            {
+                ViewBag.statusMaster = "Platina";
+            }
+            if (produtos >= 10000)
+            {
+                ViewBag.statusMaster = "Diamante";
+            }
+
+            return View(clintedest);
         }
 
         // GET: Cliente/Create
@@ -49,7 +70,6 @@ namespace prova_nexo_web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Mapper.Initialize(c => c.CreateMap<ClienteModel, Cliente>());
                     var clintedest = Mapper.Map<ClienteModel, Cliente>(clienteModel);
                     var result = _service.SalvarCliente(clintedest);
                    if (result)
@@ -59,8 +79,9 @@ namespace prova_nexo_web.Controllers
                 }
                 return View(clienteModel);
             }
-            catch
+            catch(Exception e)
             {
+                var bb = e;
                 return View(clienteModel);
             }
         }

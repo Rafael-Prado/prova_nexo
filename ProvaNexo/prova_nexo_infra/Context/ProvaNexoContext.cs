@@ -1,7 +1,7 @@
-﻿using prova_nexo_domain.Domain;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using prova_nexo_domain.Domain;
 
 namespace prova_nexo_infra.Context
 {

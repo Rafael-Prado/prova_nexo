@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<prova_nexo_web.Models.ClienteModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Clientes";
 }
 
-<h2>Index</h2>
+<h2>Clientes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Novo Cliente", "Create")
 </p>
 <table class="table">
     <tr>
@@ -22,9 +22,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DataCadastro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ativo)
         </th>
         <th></th>
     </tr>
@@ -43,14 +40,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.DataCadastro)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ativo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+    <td>
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Novo Produto", "Index", "Produto", new { clienteId = item.Id }, null)
+    </td>
     </tr>
 }
 

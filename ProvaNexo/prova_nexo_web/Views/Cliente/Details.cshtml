@@ -4,10 +4,22 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+    <div>
+        <h2>Cliente : @Model.Nome</h2>
+        @if (ViewBag.statusMaster != null)
+        {
+            <p><span>Seu status:<strong> @ViewBag.statusMaster</strong></span></p>
+        }
+        else
+        {
+            <p>Você ainda não atingiu nenhum status</p>
+        }
+
+    </div>
+
+
 
 <div>
-    <h4>ClienteModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -40,14 +52,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.DataCadastro)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ativo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ativo)
         </dd>
 
     </dl>

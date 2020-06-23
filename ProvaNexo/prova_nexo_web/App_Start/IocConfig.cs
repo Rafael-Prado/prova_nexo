@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using Ninject;
 using Ninject.Syntax;
-using System.Web.Mvc;
+using Ninject.Web.Common;
+using prova_nexo_infra.Context;
 using prova_nexo_repository.Repository;
 using prova_nexo_repository.Repository.Interface;
-using prova_nexo_service.Service.Interface;
 using prova_nexo_service.Service;
+using prova_nexo_service.Service.Interface;
 
 namespace prova_nexo_web.App_Start
 {
@@ -16,14 +20,15 @@ namespace prova_nexo_web.App_Start
         {
             //Cria o Container 
             IKernel kernel = new StandardKernel();
-
+            kernel.Bind<ProvaNexoContext>().ToSelf().InRequestScope();
             //Services
             kernel.Bind<IProdutoService>().To<ProdutoService>();
             kernel.Bind<IClienteService>().To<ClienteService>();
 
             //Repositorys
-            kernel.Bind<IProdutoRepository>().To<ProdutoRepository>();
-            kernel.Bind<IClienteRepository>().To<ClienteRepository>();
+            kernel.Bind<IProdutoRepository>().To<ProdutoRepository>().InRequestScope();
+            kernel.Bind<IClienteRepository>().To<ClienteRepository>().InRequestScope();
+
 
             //Registra o container no ASP.NET
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));

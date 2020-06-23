@@ -88,10 +88,6 @@
     <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="prova_nexo_infra, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Bin\prova_nexo_infra.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -169,11 +165,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +221,9 @@
     <Content Include="Views\Cliente\Details.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Cliente\Create.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\Produto\Details.cshtml" />
+    <Content Include="Views\Produto\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -242,15 +243,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\prova_nexo_domain\prova_nexo_domain.csproj">
-      <Project>{F059D940-BF90-4A80-A8DB-8EC38FAE46C3}</Project>
+      <Project>{f059d940-bf90-4a80-a8db-8ec38fae46c3}</Project>
       <Name>prova_nexo_domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\prova_nexo_infra\prova_nexo_infra.csproj">
+      <Project>{e6222ff7-2b22-464f-993f-b0917865ab7f}</Project>
+      <Name>prova_nexo_infra</Name>
+    </ProjectReference>
     <ProjectReference Include="..\prova_nexo_repository\prova_nexo_repository.csproj">
-      <Project>{FEF254AE-F5F4-425F-B4BC-9B6CED2C68F2}</Project>
+      <Project>{fef254ae-f5f4-425f-b4bc-9b6ced2c68f2}</Project>
       <Name>prova_nexo_repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\prova_nexo_service\prova_nexo_service.csproj">
-      <Project>{E678A72F-33CE-4A3F-85FF-2662D824214A}</Project>
+      <Project>{e678a72f-33ce-4a3f-85ff-2662d824214a}</Project>
       <Name>prova_nexo_service</Name>
     </ProjectReference>
   </ItemGroup>
